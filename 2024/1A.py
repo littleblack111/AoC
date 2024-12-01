@@ -1,7 +1,7 @@
 loc1 = []
 loc2 = []
 
-with open('1A.in', 'r') as file:
+with open('1.in', 'r') as file:
     for line in file:
         parts = line.strip().split("   ")
         if len(parts) == 2:
