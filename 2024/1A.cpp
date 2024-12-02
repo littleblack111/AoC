@@ -6,9 +6,9 @@ int main(int argc, char const *argv[])
 {
 	int res = 0;
 	std::vector<std::string> file = readfile("1.in");
-	if (file.empty()) {
+	if (file.empty())
 		return 1;
-	}
+
 	std::vector<int> left, right;
 	for (const auto &line : file) {
 		int n1, n2;
