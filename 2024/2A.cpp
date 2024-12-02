@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
 				increasing = true;
 			else if (prev > n)
 				decreasing = true;
+			// all conditions for unsafe lol
 			if (std::abs(prev - n) > 3 || prev == n || (n > prev && decreasing || n < prev && increasing || increasing && decreasing || !increasing && !decreasing)) {
 				safe = false;
 				break;
