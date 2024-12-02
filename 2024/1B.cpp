@@ -5,7 +5,7 @@
 int main(int argc, char const *argv[])
 {
 	int res = 0;
-	std::vector<std::string> file = readfile("2.in");
+	std::vector<std::string> file = readfile("1B.in");
 	if (file.empty())
 		return 1;
 	
