@@ -1,4 +1,4 @@
-use aoc::read::read;
+use aoc::fetch::fetch;
 
 #[derive(Debug)]
 struct Ring {
@@ -48,7 +48,7 @@ impl Ring {
 
 pub fn main() {
     let mut ring = Ring::new();
-    let input = read("a");
+    let input = fetch(1);
     for i in input {
         let dir = i
             .chars()
