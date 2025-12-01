@@ -1,0 +1,15 @@
+[package]
+name = "aoc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cookie = "0.18.1"
+reqwest = { version = "0.12.24", features = ["blocking", "cookies"] }
+
+[lib]
+path = "./lib.rs"
+
+[[bin]]
+name = "aoc"
+path = "./main.rs"
