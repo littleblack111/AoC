@@ -18,7 +18,7 @@ pub fn fetch(lv: usize) -> Vec<String> {
         .cookie_provider(jar)
         .build()
         .unwrap()
-        .get(format!("https://adventofcode.com/{YEAR}/day/{lv}"))
+        .get(format!("https://adventofcode.com/{YEAR}/day/{lv}/input"))
         .send()
         .unwrap()
         .text()
