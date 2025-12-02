@@ -48,7 +48,9 @@ impl Ring {
 
 pub fn main() {
     let mut ring = Ring::new();
-    let input = read("a");
+    let input = read(
+        "a", '\n',
+    );
     for i in input {
         let dir = i
             .chars()

@@ -48,7 +48,7 @@ impl Ring {
 
 pub fn main() {
     let mut ring = Ring::new();
-    let input = fetch(1);
+    let input = fetch(1, '\n');
     for i in input {
         let dir = i
             .chars()
@@ -63,13 +63,7 @@ pub fn main() {
             'R' => ring.right(num),
             _ => {}
         }
-        println!(
-            "{}: {:#?}",
-            num, ring
-        )
+        println!("{}: {:#?}", num, ring)
     }
-    println!(
-        "Result: {}",
-        ring.counter
-    );
+    println!("Result: {}", ring.counter);
 }

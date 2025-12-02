@@ -1,18 +1,12 @@
-use std::{env, sync::Arc};
+use std::{env, str::pattern::Pattern, sync::Arc};
 
 use reqwest::{Url, blocking::Client, cookie::Jar};
 
 const YEAR: usize = 2025;
 
-pub fn fetch(lv: usize) -> Vec<String> {
+pub fn fetch(lv: usize, p: impl Pattern) -> Vec<String> {
     let jar = Arc::new(Jar::default());
-    jar.add_cookie_str(
-        &format!(
-            "session={}",
-            env::var("AOC_SESSION").unwrap()
-        ),
-        &Url::parse("https:///adventofcode.com").unwrap(),
-    );
+    jar.add_cookie_str(&format!("session={}", env::var("AOC_SESSION").unwrap()), &Url::parse("https:///adventofcode.com").unwrap());
 
     Client::builder()
         .cookie_provider(jar)
@@ -23,7 +17,7 @@ pub fn fetch(lv: usize) -> Vec<String> {
         .unwrap()
         .text()
         .unwrap()
-        .lines()
+        .split(p)
         .map(|s| s.to_string())
         .collect()
 }

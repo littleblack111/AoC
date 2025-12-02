@@ -1,9 +1,9 @@
-use std::{fs, path::Path};
+use std::{fs, path::Path, str::pattern::Pattern};
 
-pub fn read(file: impl AsRef<Path>) -> Vec<String> {
+pub fn read(file: impl AsRef<Path>, p: impl Pattern) -> Vec<String> {
     fs::read_to_string(file)
         .expect("Failed to read file")
-        .lines()
+        .split(p)
         .map(|l| l.to_string())
         .collect()
 }
