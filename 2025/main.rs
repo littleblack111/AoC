@@ -1,15 +1,7 @@
-pub mod aa;
-pub mod ab;
-
-pub mod ba;
-pub mod bb;
-
-pub mod ca;
-pub mod cb;
+pub mod d1;
+pub mod d2;
+pub mod d3;
 
 fn main() {
-    // aa::main();
-    // ab::main();
-    // ba::main();
-    ca::main();
+    d3::part2();
 }

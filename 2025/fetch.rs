@@ -6,7 +6,13 @@ const YEAR: usize = 2025;
 
 pub fn fetch(lv: usize, p: impl Pattern) -> Vec<String> {
     let jar = Arc::new(Jar::default());
-    jar.add_cookie_str(&format!("session={}", env::var("AOC_SESSION").unwrap()), &Url::parse("https:///adventofcode.com").unwrap());
+    jar.add_cookie_str(
+        &format!(
+            "session={}",
+            env::var("AOC_SESSION").unwrap()
+        ),
+        &Url::parse("https:///adventofcode.com").unwrap(),
+    );
 
     Client::builder()
         .cookie_provider(jar)
