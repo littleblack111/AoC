@@ -25,5 +25,6 @@ pub fn fetch(lv: usize, p: impl Pattern) -> Vec<String> {
         .unwrap()
         .split(p)
         .map(|s| s.to_string())
+        .filter(|s| !s.is_empty())
         .collect()
 }

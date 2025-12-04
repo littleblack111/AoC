@@ -75,7 +75,9 @@ impl JoltageBank {
 }
 
 pub fn part1() {
-    let input = fetch(3, '\n');
+    let input = fetch(
+        3, '\n',
+    );
     let mut res = 0;
     for i in input {
         if i.is_empty() {
@@ -98,7 +100,9 @@ pub fn part1() {
 
 pub fn part2() {
     // let input = fetch(3, '\n');
-    let input = read("d", '\n');
+    let input = read(
+        "d", '\n',
+    );
     let mut res = 0;
     for i in input {
         if i.is_empty() {

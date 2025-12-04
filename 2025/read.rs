@@ -5,5 +5,6 @@ pub fn read(file: impl AsRef<Path>, p: impl Pattern) -> Vec<String> {
         .expect("Failed to read file")
         .split(p)
         .map(|l| l.to_string())
+        .filter(|s| !s.is_empty())
         .collect()
 }
