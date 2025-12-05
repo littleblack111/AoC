@@ -14,7 +14,7 @@ pub fn fetch(lv: usize, p: impl Pattern) -> Vec<String> {
         &Url::parse("https:///adventofcode.com").unwrap(),
     );
 
-    Client::builder()
+    let mut ret: Vec<String> = Client::builder()
         .cookie_provider(jar)
         .build()
         .unwrap()
@@ -25,6 +25,13 @@ pub fn fetch(lv: usize, p: impl Pattern) -> Vec<String> {
         .unwrap()
         .split(p)
         .map(|s| s.to_string())
-        .filter(|s| !s.is_empty())
-        .collect()
+        .collect();
+    if ret
+        .last()
+        .unwrap()
+        .is_empty()
+    {
+        ret.pop();
+    }
+    ret
 }
