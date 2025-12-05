@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use aoc::fetch::fetch;
 
 #[derive(PartialEq)]
@@ -52,7 +54,18 @@ impl Db {
         //         }
         //     }
         // }
-        for i in &mut self.ingredient {
+        let len = self
+            .ingredient
+            .len();
+        for (index, i) in self
+            .ingredient
+            .iter_mut()
+            .enumerate()
+        {
+            println!(
+                "{}",
+                index / len * 100
+            );
             for (start, end) in &self.ranges {
                 if i.inner >= *start && i.inner <= *end {
                     i.kind = Some(Type::Fresh);
@@ -79,17 +92,13 @@ impl Db {
     }
 
     fn get_all_ranges_sum(&self) -> usize {
-        self.ranges
-            .iter()
-            .fold(
-                0,
-                |mut prev, (start, end)| {
-                    for _ in *start..=*end {
-                        prev += 1;
-                    }
-                    prev
-                },
-            )
+        let mut ids: HashSet<usize> = HashSet::new();
+        for (start, end) in &self.ranges {
+            for i in *start..=*end {
+                ids.insert(i);
+            }
+        }
+        ids.len()
     }
 }
 
